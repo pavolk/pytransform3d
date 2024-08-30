@@ -94,7 +94,7 @@ class _Trimesh(MeshBase):
             import trimesh
         except ImportError:
             return False
-        obj = trimesh.load(self.filename)
+        obj = trimesh.load(self.filename, force='mesh', skip_texture=True)
         if isinstance(obj, trimesh.Scene):  # pragma: no cover
             # Special case in which we load a collada file that contains
             # multiple meshes. We might lose textures. This is excluded
